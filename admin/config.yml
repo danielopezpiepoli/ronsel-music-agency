@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Configuración de subida de imágenes
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+# Colección de artistas de Ronsel
+collections:
+  - name: "artists"
+    label: "Artistas"
+    folder: "data/artists"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    extension: "json"
+    fields:
+      - { label: "Identificador (URL)", name: "id", widget: "string", hint: "Ej: laura-perez (sin espacios ni acentos)" }
+      - { label: "Nombre del Artista", name: "name", widget: "string" }
+      - { label: "Disciplina o Instrumento", name: "discipline", widget: "string", hint: "Ej: Directora de orquesta / Cuarteto de cuerdas / Piano" }
+      - { label: "Foto Principal de Perfil", name: "avatar", widget: "image" }
+      - { label: "Biografía", name: "bio", widget: "markdown" }
+      - label: "Galería de Fotos (Portfolio)"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "image", widget: "image" }
+      - label: "Enlaces de YouTube"
+        name: "youtube_links"
+        widget: "list"
+        required: false
+        field: { label: "Enlace del Video", name: "url", widget: "string", hint: "Copia y pega la URL de YouTube tal cual" }
