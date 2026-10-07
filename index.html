@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ronsel | Artist Management & Productions</title>
+  <meta name="description" content="Ronsel: Artist Management & Productions. Music leaves a wake. Artist representation, touring, and bespoke productions." />
+  
+  <!-- Tipografía Google Fonts (Playfair Display para títulos, Inter para lectura) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Navegación -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-title">RONSEL</span>
+        <span class="logo-sub">Artist Management & Productions</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Principal -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="tagline">Music leaves a wake</p>
+      <h1>Artist management, representation & production</h1>
+      <p class="hero-description">
+        Supporting exceptional performers, conductors, and ensembles in developing visionary careers and unforgettable stage experiences.
+      </p>
+      <div class="hero-actions">
+        <a href="artists.html" class="btn btn-primary">Discover Artists</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Destacada de Artistas (Se alimenta dinámicamente con JS) -->
+  <section class="section container">
+    <div class="section-header">
+      <h2>Roster</h2>
+      <p>Artists and ensembles of artistic excellence and creative distinction.</p>
+    </div>
+    
+    <div id="featured-artists" class="artists-grid">
+      <!-- Inyectado por main.js -->
+    </div>
+
+    <div class="center-cta">
+      <a href="artists.html" class="btn btn-outline">View Full Roster &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Sobre la Agencia con sus 4 Pilares Reales -->
+  <section id="about" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="logo-sub">Our Mission</span>
+        <h2>What is Ronsel?</h2>
+        <p style="max-width: 750px; margin: 0.8rem auto 0 auto;">
+          An artist management and production agency dedicated to lyric music and the performing arts. We nurture talent with merit, dedication, long-term commitment, and deep sensitivity.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-item">
+          <h3>Emerging Talent</h3>
+          <p>Providing international visibility, guidance, and strategic tools to launch new artistic voices.</p>
+        </div>
+        <div class="pillar-item">
+          <h3>Sustaining Living Art</h3>
+          <p>Accompanying consolidated careers, opening new venues where their voice and experience retain their rightful place.</p>
+        </div>
+        <div class="pillar-item">
+          <h3>Lyric Festivals</h3>
+          <p>Curating and producing unique lyric festivals rooted in sustainability, local heritage, and artistic excellence.</p>
+        </div>
+        <div class="pillar-item">
+          <h3>Meaningful Projects</h3>
+          <p>Producing accessible, carefully crafted events that bring lyric music closer to diverse audiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contact" class="section container">
+    <div class="contact-box">
+      <h2>Start a Conversation</h2>
+      <p>For booking inquiries, press kits, or collaboration proposals:</p>
+      <a href="mailto:info@ronselmanagement.com" class="contact-email">info@ronselmanagement.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Ronsel: Artist Management & Productions. Todos los derechos reservados.</p>
+      <p class="credit">
+        Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script para pintar los artistas dinámicamente -->
+  <script src="js/main.js"></script>
+</body>
+</html>
