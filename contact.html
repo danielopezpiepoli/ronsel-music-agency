@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Inquiries | Ronsel Artist Management</title>
+  <meta name="description" content="Get in touch with Ronsel for artist bookings, festival and scenic productions, roster auditions, and general inquiries." />
+
+  <!-- Tipografías elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header Global -->
+  <header class="site-header" id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-text">
+          <span class="logo-title">RONSEL</span>
+          <span class="logo-sub">Artist Management & Productions</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-wrapper" id="navWrapper">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-item">Home</a></li>
+          <li><a href="roster.html" class="nav-item">Artists</a></li>
+          <li><a href="about.html" class="nav-item">About</a></li>
+          <li><a href="mission.html" class="nav-item">Philosophy</a></li>
+          <li><a href="contact.html" class="nav-item active">Contact</a></li>
+
+          <!-- Selector de Idiomas -->
+          <li class="dropdown lang-dropdown">
+            <button class="dropdown-trigger lang-current" type="button" aria-haspopup="true">
+              <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="lang-flag" />
+              <span>EN</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown-content lang-options">
+              <li><a href="?lang=en" class="lang-item"><img src="https://flagcdn.com/w20/gb.png" alt="EN" /><span>English (EN)</span></a></li>
+              <li><a href="?lang=es" class="lang-item"><img src="https://flagcdn.com/w20/es.png" alt="ES" /><span>Español (ES)</span></a></li>
+              <li><a href="?lang=it" class="lang-item"><img src="https://flagcdn.com/w20/it.png" alt="IT" /><span>Italiano (IT)</span></a></li>
+              <li><a href="?lang=fr" class="lang-item"><img src="https://flagcdn.com/w20/fr.png" alt="FR" /><span>Français (FR)</span></a></li>
+              <li><a href="?lang=pt" class="lang-item"><img src="https://flagcdn.com/w20/pt.png" alt="PT" /><span>Português (PT)</span></a></li>
+              <li><a href="?lang=de" class="lang-item"><img src="https://flagcdn.com/w20/de.png" alt="DE" /><span>Deutsch (DE)</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
+  </header>
+
+  <main class="page-main-container">
+    <div class="container">
+      
+      <!-- Encabezado de Contacto -->
+      <div class="section-header text-center contact-page-header">
+        <span class="badge">Direct Communication</span>
+        <h1 class="page-title">Commence a Collaboration</h1>
+        <div class="motto-divider"><span>♦</span></div>
+        <p class="contact-lead-text">
+          Whether you are planning an orchestral season, curating an international festival, casting a lyric production, or seeking artist representation, our team provides dedicated dialogue and artistic partnership.
+        </p>
+      </div>
+
+      <!-- Layout Principal: Formulario a la izquierda + 3 Cajas a la derecha -->
+      <div class="contact-layout-grid">
+        
+        <!-- Bloque del Formulario -->
+        <div class="contact-form-card">
+          <div class="contact-form-header">
+            <h2 class="contact-form-title">Send an Inquiry</h2>
+            <p class="contact-form-subtitle">Complete the fields below and our management team will respond promptly.</p>
+          </div>
+
+          <form action="#" method="POST" class="editorial-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" required placeholder="e.g. Maria Callas" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="name@organization.com" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="organization">Organization / Institution</label>
+                <input type="text" id="organization" name="organization" placeholder="e.g. Opera House, Festival or Orchestra" />
+              </div>
+              <div class="form-group">
+                <label for="inquiryType">Inquiry Purpose <span class="required">*</span></label>
+                <div class="select-wrapper">
+                  <select id="inquiryType" name="inquiryType" required>
+                    <option value="" disabled selected>Select an area of interest...</option>
+                    <option value="production">Stage Productions & Festivals</option>
+                    <option value="booking">Artist Booking & Engagements</option>
+                    <option value="audition">Roster Auditions & Artist Submissions</option>
+                    <option value="general">General Inquiries & Press Office</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="artistSubject">Subject or Artist of Interest</label>
+              <input type="text" id="artistSubject" name="artistSubject" placeholder="e.g. Booking inquiry for Gena Liévano / Summer Opera Festival" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Detailed Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="5" required placeholder="Provide details regarding dates, artistic concept, venue, or portfolio links..."></textarea>
+            </div>
+
+            <div class="form-footer">
+              <button type="submit" class="btn btn-primary submit-btn">
+                <span>Submit Inquiry</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <p class="form-privacy-notice">
+                By submitting this form, you acknowledge and agree to our <a href="privacy-policy.html">Privacy Policy</a>.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Columna Lateral: 3 Recuadros Especializados -->
+        <aside class="contact-cards-sidebar">
+          
+          <!-- Recuadro 1: Producciones y Festivales -->
+          <div class="pillar-card contact-info-card">
+            <div class="contact-card-icon">
+              <i class="fa-solid fa-landmark"></i>
+            </div>
+            <span class="badge">Scenic Management</span>
+            <h3 class="contact-info-title">Stage Productions & Festivals</h3>
+            <p class="contact-info-desc">
+              Comprehensive artistic direction, bespoke lyrical productions, operatic staging, and cultural programming for theaters and open-air venues.
+            </p>
+            <div class="contact-direct-link">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:productions@ronselmanagement.com">productions@ronselmanagement.com</a>
+            </div>
+          </div>
+
+          <!-- Recuadro 2: Audiciones y Selección para Roster -->
+          <div class="pillar-card contact-info-card">
+            <div class="contact-card-icon">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <span class="badge">Artist Representation</span>
+            <h3 class="contact-info-title">Auditions & Roster Submissions</h3>
+            <p class="contact-info-desc">
+              We welcome submissions from conductors, vocalists, and instrumental soloists. Please include updated biography, unedited live performance links, and high-resolution materials.
+            </p>
+            <div class="contact-direct-link">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:auditions@ronselmanagement.com">auditions@ronselmanagement.com</a>
+            </div>
+          </div>
+
+          <!-- Recuadro 3: Contratación de Artistas o Información General -->
+          <div class="pillar-card contact-info-card">
+            <div class="contact-card-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <span class="badge">Bookings & Press</span>
+            <h3 class="contact-info-title">Artist Bookings & General Info</h3>
+            <p class="contact-info-desc">
+              Availability checks, contractual terms, guest soloist inquiries, press kits, and general institutional collaborations.
+            </p>
+            <div class="contact-direct-link">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:info@ronselmanagement.com">info@ronselmanagement.com</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================
+       FOOTER & SUBFOOTER
+       ========================================= -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      
+      <!-- Columna 1: Identidad & Redes -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-text">
+            <span class="logo-title">RONSEL</span>
+            <span class="logo-sub">Artist Management & Productions</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Music leaves an enduring wake across stages and audiences.</p>
+        
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:info@ronselmanagement.com" aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+      </div> <!-- Cierre columna 1 -->
+
+      <!-- Columna 2: Navegación -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="roster.html">Artists Roster</a></li>
+          <li><a href="about.html">About Ronsel</a></li>
+          <li><a href="mission.html">Philosophy & Mission</a></li>
+        </ul>
+      </div> <!-- Cierre columna 2 -->
+
+      <!-- Columna 3: Disciplinas -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Disciplines</h4>
+        <ul class="footer-links">
+          <li><a href="roster.html?filter=conductor">Conductors</a></li>
+          <li><a href="roster.html?filter=voice">Lyric Voices</a></li>
+          <li><a href="roster.html?filter=instrument">Instrumentalists</a></li>
+          <li><a href="roster.html?filter=production">Stage Productions</a></li>
+        </ul>
+      </div> <!-- Cierre columna 3 -->
+
+      <!-- Columna 4: Contacto -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Direct Contact</h4>
+        <p class="footer-contact-item">General Inquiries & Bookings:</p>
+        <a href="mailto:info@ronselmanagement.com" class="footer-contact-link">info@ronselmanagement.com</a>
+        <p class="footer-contact-note">Spain · International Touring</p>
+      </div> <!-- Cierre columna 4 -->
+
+    </div> <!-- Cierre footer-grid -->
+
+    <!-- Subfooter (Franja inferior independiente) -->
+    <div class="subfooter">
+      <div class="subfooter-container">
+        <p class="subfooter-copyright">
+          &copy; 2026 Ronsel: Artist Management & Productions. All rights reserved.
+        </p>
+        <div class="subfooter-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="legal-notice.html">Legal Notice</a>
+          <span>|</span>
+          <a href="cookies.html">Cookies</a>
+        </div>
+        <p class="subfooter-credit">
+          Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

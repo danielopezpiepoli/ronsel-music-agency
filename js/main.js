@@ -17,13 +17,14 @@ function initHeaderControls() {
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      header.classList.add('scrolled');
+      if (header) header.classList.add('scrolled');
     } else {
-      header.classList.remove('scrolled');
+      if (header) header.classList.remove('scrolled');
     }
   });
 
   function toggleMobileMenu() {
+    if (!navWrapper || !mobileBtn || !menuOverlay) return;
     const isOpen = navWrapper.classList.toggle('open');
     mobileBtn.classList.toggle('open');
     menuOverlay.classList.toggle('open');
@@ -75,7 +76,7 @@ function initHeaderControls() {
    ========================================================================= */
 function initWakeCanvas() {
   const canvas = document.getElementById('wake-canvas');
-  if (!canvas) return;
+  if (!canvas || !canvas.parentElement) return;
 
   const ctx = canvas.getContext('2d');
   let width, height;
@@ -208,7 +209,7 @@ function renderArtists(list) {
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="2" y1="12" x2="22" y2="12"></line>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path>
           </svg>
           ${artist.origin || artist.country || 'International'}
         </p>
@@ -218,46 +219,31 @@ function renderArtists(list) {
 }
 
 /* =========================================================================
-   Control de Filtros por Categoría (Incluye plantilla orquestal completa)
+   4. Control de Filtros por Categoría (Catálogo Orquestal Completo)
    ========================================================================= */
 function setupFilters() {
   const buttons = document.querySelectorAll('.filter-btn');
 
-  // Catálogo exhaustivo de instrumentos orquestales y solistas (multilingüe EN/ES/IT)
   const orchestraKeywords = [
-    // Teclados
     'piano', 'fortepiano', 'harpsichord', 'clavecin', 'clavecín', 'organ', 'órgano', 'celesta',
-    
-    // Cuerdas frotadas y pulsadas
     'violin', 'violín', 'viola', 'violoncello', 'cello', 'violonchelo', 'double bass', 'contrabass', 
     'contrabajo', 'harp', 'arpa', 'guitar', 'guitarra', 'lute', 'laúd', 'theorbo', 'tiorba',
-    
-    // Maderas
     'flute', 'flauta', 'piccolo', 'oboe', 'cor anglais', 'english horn', 'cuerno inglés', 
     'clarinet', 'clarinete', 'bassoon', 'fagot', 'contrabassoon', 'contrafagot', 'saxophone', 'saxofón',
-    
-    // Metales
     'horn', 'french horn', 'trompa', 'corno', 'trumpet', 'trompeta', 'trombone', 'trombón', 'tuba',
-    
-    // Percusión
     'percussion', 'percusión', 'timpani', 'timbales', 'marimba', 'vibraphone',
-    
-    // Genéricos
     'instrument', 'instrumentist', 'instrumentista', 'soloist', 'solista'
   ];
 
-  // Términos vocales
   const voiceKeywords = [
     'voice', 'voz', 'vocal', 'lyric', 'lírico', 'soprano', 'mezzo', 'mezzosoprano', 
     'contralto', 'tenor', 'baritone', 'barítono', 'bass', 'bajo', 'countertenor', 'contratenor'
   ];
 
-  // Dirección
   const conductorKeywords = [
     'conductor', 'director', 'directora', 'conducting', 'maestro', 'dirección'
   ];
 
-  // Proyectos escénicos / Festivales
   const productionKeywords = [
     'production', 'producción', 'scenic', 'escénica', 'project', 'proyecto', 
     'festival', 'ensemble', 'orchestra', 'orquesta', 'choir', 'coro', 'theatre', 'teatro'
