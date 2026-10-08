@@ -15,7 +15,7 @@ function initHeaderControls() {
   const langDropdown = document.querySelector('.lang-dropdown');
   const langCurrent = document.querySelector('.lang-current');
 
-  // Shrink header al bajar más de 50px sin saltos
+  // Shrink header al bajar más de 50px
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
@@ -31,7 +31,6 @@ function initHeaderControls() {
     menuOverlay.classList.toggle('open');
     document.body.style.overflow = isOpen ? 'hidden' : '';
 
-    // Si cerramos el menú móvil, también replegamos el selector de idiomas
     if (!isOpen && langDropdown) {
       langDropdown.classList.remove('open');
     }
@@ -54,14 +53,26 @@ function initHeaderControls() {
     });
   });
 
-  // Toggle del selector de idiomas (apertura y cierre por tap/click)
+  // Selector de idioma: abrir/cerrar limpiamente al click o tap
   if (langCurrent && langDropdown) {
     langCurrent.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
       langDropdown.classList.toggle('open');
     });
 
-    // Cerrar dropdown si se hace click fuera de él
+    // Cerrar al hacer clic en cualquier opción de idioma
+    const langLinks = langDropdown.querySelectorAll('.lang-options a');
+    langLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        langDropdown.classList.remove('open');
+        if (navWrapper && navWrapper.classList.contains('open')) {
+          toggleMobileMenu();
+        }
+      });
+    });
+
+    // Cerrar si se hace click fuera
     document.addEventListener('click', (e) => {
       if (!langDropdown.contains(e.target)) {
         langDropdown.classList.remove('open');
@@ -98,7 +109,6 @@ function initWakeCanvas() {
       this.alpha = 0.35;
       this.growth = Math.random() * 0.8 + 0.4;
       this.decay = Math.random() * 0.006 + 0.004;
-      // Deriva sutil que recuerda la vibración del agua
       this.vx = (Math.random() - 0.5) * 0.4;
       this.vy = (Math.random() - 0.5) * 0.4;
     }
@@ -114,14 +124,12 @@ function initWakeCanvas() {
       ctx.save();
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      // Tono dorado/ocre sutil translúcido
       ctx.fillStyle = `rgba(171, 124, 56, ${Math.max(0, this.alpha)})`;
       ctx.fill();
       ctx.restore();
     }
   }
 
-  // Al mover el ratón sobre el hero, se generan partículas de estela
   canvas.parentElement.addEventListener('mousemove', (e) => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -152,9 +160,30 @@ function initWakeCanvas() {
 }
 
 /* =========================================================================
-   3. Carga y Filtros Interactivos del Catálogo de Artistas
+   3. Carga, Aleatoriedad y Renderizado del Roster de Artistas
    ========================================================================= */
 let allArtists = [];
+
+// Fisher-Yates shuffle
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// Datos de fallback en memoria por si se prueba en file:/// sin servidor local
+const localArtistsFallback = [
+  {
+    id: "gena-lievano",
+    name: "Gena Liévano",
+    discipline: "Conductor",
+    origin: "Venezuela · Italy",
+    avatar: "assets/images/artists/gena-lievano.jpg"
+  }
+];
 
 function loadArtists() {
   const container = document.getElementById('featured-artists');
@@ -166,13 +195,15 @@ function loadArtists() {
       return res.json();
     })
     .then(data => {
-      allArtists = data;
+      allArtists = shuffleArray(data);
       renderArtists(allArtists);
       setupFilters();
     })
     .catch(err => {
-      console.error(err);
-      container.innerHTML = '<p class="text-muted">Unable to load artists at this time.</p>';
+      console.warn('Cargando artistas de respaldo local:', err);
+      allArtists = shuffleArray(localArtistsFallback);
+      renderArtists(allArtists);
+      setupFilters();
     });
 }
 
@@ -189,11 +220,18 @@ function renderArtists(list) {
     <a href="artist.html?id=${encodeURIComponent(artist.id)}" class="artist-card" data-category="${artist.discipline}">
       <div class="artist-img-wrapper">
         <img src="${artist.avatar}" alt="${artist.name}" loading="lazy">
+        <div class="artist-badge-discipline">${artist.discipline}</div>
       </div>
       <div class="artist-info">
-        <p class="artist-discipline">${artist.discipline}</p>
         <h3 class="artist-name">${artist.name}</h3>
-        <p class="artist-summary">${artist.bio_summary || ''}</p>
+        <p class="artist-origin">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          ${artist.origin || artist.country || 'International'}
+        </p>
       </div>
     </a>
   `).join('');
@@ -212,9 +250,11 @@ function setupFilters() {
       if (filter === 'all') {
         renderArtists(allArtists);
       } else {
-        const filtered = allArtists.filter(a => 
-          a.discipline.toLowerCase().includes(filter.toLowerCase())
-        );
+        const filtered = allArtists.filter(a => {
+          const disc = (a.discipline || '').toLowerCase();
+          const target = filter.toLowerCase();
+          return disc.includes(target) || (target === 'voice' && disc.includes('lyric'));
+        });
         renderArtists(filtered);
       }
     });

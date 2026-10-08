@@ -604,22 +604,31 @@ body {
    6. SECCIÓN CATÁLOGO / ROSTER
    ========================================================================== */
 
-/* 6.1 Roster / Controles de filtrado interactivo */
+/* Fondo diferenciado para crear un corte claro con la sección de arriba */
+#roster {
+  background-color: #fbf9f4; /* Tono lino/marfil luminoso, distinto del beige y del fondo general */
+  border-top: 1px solid rgba(24, 23, 21, 0.08);
+  border-bottom: 1px solid rgba(24, 23, 21, 0.08);
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+/* 6.1 Controles de filtro */
 .filter-controls {
   display: flex;
   justify-content: center;
   gap: 0.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   flex-wrap: wrap;
 }
 
 .filter-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.4);
   border: 1px solid var(--border);
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1.4rem;
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   cursor: pointer;
   border-radius: 2px;
@@ -633,13 +642,14 @@ body {
   border-color: var(--text-main);
 }
 
-/* 6.2 Roster / Grid de artistas y tarjetas */
+/* 6.2 Grid de tarjetas con formato retrato */
 .artists-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.2rem;
 }
 
+/* Tarjeta de Artista elegante y compacta */
 .artist-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -648,18 +658,22 @@ body {
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .artist-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(24, 23, 21, 0.07);
-  border-color: var(--border-active);
+  box-shadow: 0 16px 32px rgba(24, 23, 21, 0.08);
+  border-color: var(--accent-gold);
 }
 
+/* Proporción de retrato fotográfico clásico */
 .artist-img-wrapper {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   width: 100%;
   overflow: hidden;
+  position: relative;
   background: #e4ded3;
 }
 
@@ -667,76 +681,136 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: grayscale(15%);
 }
 
 .artist-card:hover .artist-img-wrapper img {
-  transform: scale(1.04);
+  transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
-.artist-info {
-  padding: 2rem 1.8rem;
-  text-align: center;
-}
-
-.artist-discipline {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
+/* Etiqueta flotante sutil de disciplina sobre la imagen */
+.artist-badge-discipline {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(24, 23, 21, 0.75);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-gold);
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* Bloque inferior: Nombre y Origen */
+.artist-info {
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+  background: var(--bg-card);
+  border-top: 1px solid rgba(24, 23, 21, 0.05);
 }
 
 .artist-name {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.25rem;
   font-weight: 400;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.01em;
 }
 
-.artist-summary {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.6;
+.artist-origin {
+  font-size: 0.78rem;
+  color: var(--accent-gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+}
+
+.artist-origin svg {
+  opacity: 0.8;
 }
 
 
 /* ==========================================================================
    7. SECCIÓN FILOSOFÍA / 4 PILARES
    ========================================================================== */
+
+/* Fondo de sección ligeramente más contrastado para crear ritmo visual */
+.section-dark {
+  background-color: #ede7d8; /* Tono arena cálido un matiz más profundo */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 
+/* Tarjeta integrada: adiós al blanco chillón tipo 'sticker' */
 .pillar-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 2.8rem 2rem;
+  background: rgba(255, 255, 255, 0.55); /* Traslúcido elegante */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(24, 23, 21, 0.08);
+  border-top: 2px solid var(--accent-gold); /* Detalle de acento superior */
+  padding: 3rem 2rem 2.5rem 2rem;
   text-align: center;
-  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* Hover refinado: cobra cuerpo suavemente */
 .pillar-card:hover {
   transform: translateY(-4px);
-  border-color: var(--accent-gold);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  background: #ffffff;
+  border-color: rgba(171, 124, 56, 0.35);
+  border-top-color: var(--accent-gold);
+  box-shadow: 0 14px 28px rgba(24, 23, 21, 0.05);
 }
 
+/* Círculo sutil detrás de cada icono */
 .pillar-icon {
-  color: var(--accent-gold);
-  margin-bottom: 1.4rem;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem auto;
   display: flex;
+  align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background: rgba(171, 124, 56, 0.08);
+  color: var(--accent-gold);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.pillar-card:hover .pillar-icon {
+  background: rgba(171, 124, 56, 0.16);
+  transform: scale(1.05);
+}
+
+.pillar-icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* Tipografía de los pilares */
 .pillar-card h3 {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.02em;
 }
 
 .pillar-card p {
@@ -747,42 +821,152 @@ body {
 
 
 /* ==========================================================================
-   8. SECCIÓN CONTACTO / INQUIRIES
+   8. SECCIÓN CONTACTO / INQUIRIES & COLLABORATIONS
    ========================================================================== */
-.contact-box {
+
+.contact-section {
+  padding: 7rem 0;
+  background-color: var(--bg-color);
+}
+
+/* Tarjeta principal con borde doble sutil y textura */
+.contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 5rem 2rem;
-  text-align: center;
-  max-width: 820px;
+  padding: 3.8rem 3rem;
+  max-width: 760px; /* Más contenido, menos espacio vacío */
   margin: 0 auto;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(24, 23, 21, 0.03);
 }
 
-.contact-box h2 {
+/* Marco interior decorativo elegante */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid rgba(171, 124, 56, 0.2);
+  pointer-events: none;
+}
+
+.contact-header h2 {
   font-family: var(--font-serif);
-  font-size: 2.3rem;
-  margin-bottom: 0.8rem;
+  font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 400;
+  color: var(--text-main);
+  margin: 0.5rem 0;
 }
 
-.contact-box p {
+.contact-divider {
+  margin: 1rem auto 1.5rem auto;
+}
+
+.contact-subtitle {
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  max-width: 540px;
+  margin: 0 auto 2.4rem auto;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
-.contact-email {
+/* Columnas de los canales */
+.contact-channels {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.4rem;
+}
+
+.channel-item {
+  text-align: center;
+}
+
+.channel-label {
+  display: block;
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.channel-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.45;
+}
+
+.channel-link {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
   color: var(--accent-gold);
   text-decoration: none;
-  border-bottom: 1px solid var(--accent-gold);
-  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(171, 124, 56, 0.35);
+  padding-bottom: 2px;
   transition: var(--transition);
 }
 
-.contact-email:hover {
+.channel-link:hover {
   color: var(--accent-gold-hover);
   border-color: var(--accent-gold-hover);
+}
+
+/* Divisor vertical entre columnas */
+.channel-divider {
+  width: 1px;
+  height: 70px;
+  background-color: var(--border);
+}
+
+/* Pie de la tarjeta */
+.contact-footer-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-btn {
+  padding: 0.9rem 2.6rem;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.contact-location-tag {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-channels {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .channel-divider {
+    width: 60px;
+    height: 1px;
+    margin: 0 auto;
+  }
 }
 
 

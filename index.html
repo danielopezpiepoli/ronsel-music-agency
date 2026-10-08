@@ -141,26 +141,32 @@
     </div>
   </section>
 
-  <!-- Roster de Artistas con Filtros Interactivos -->
-  <section id="roster" class="section section-catalog">
+  <!-- =========================================
+       SECCIÓN CATÁLOGO / ROSTER
+       ========================================= -->
+  <section id="roster" class="section">
     <div class="container">
+      
+      <!-- Encabezado de la Sección -->
       <div class="section-header">
-        <span class="badge">Represented Talents</span>
-        <h2>The Roster</h2>
-        <p>A selective family of conductors, lyric vocalists, and musical innovators.</p>
+        <span class="badge">Selected Artists</span>
+        <h2>Roster & Creative Voices</h2>
+        <p>Curated conductors, vocal soloists, and scenic productions under representation.</p>
       </div>
 
-      <!-- Filtros interactivos -->
+      <!-- Filtros por Disciplina -->
       <div class="filter-controls">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="Conductor">Conductors</button>
-        <button class="filter-btn" data-filter="Lyric">Lyric Voices</button>
-        <button class="filter-btn" data-filter="Ensemble">Ensembles & Stage</button>
+        <button class="filter-btn" data-filter="conductor">Conductors</button>
+        <button class="filter-btn" data-filter="voice">Lyric Voices</button>
+        <button class="filter-btn" data-filter="production">Productions</button>
       </div>
-      
-      <div id="featured-artists" class="artists-grid">
-        <!-- Renderizado dinámicamente vía main.js -->
+
+      <!-- Contenedor dinámico (donde el JS inyecta las tarjetas aleatorias) -->
+      <div class="artists-grid" id="featured-artists">
+        <!-- El JS genera aquí adentro las miniaturas, nombres y orígenes -->
       </div>
+
     </div>
   </section>
 
@@ -231,14 +237,52 @@
     </div>
   </section>
 
-  <!-- Contacto / Booking -->
-  <section id="contact" class="section">
+  <!-- =========================================
+       SECCIÓN CONTACTO / INQUIRIES & ENGAGEMENTS
+       ========================================= -->
+  <section id="contact" class="section contact-section">
     <div class="container">
-      <div class="contact-box">
-        <span class="badge">Inquiries & Engagements</span>
-        <h2>Commence a Collaboration</h2>
-        <p>For guest conductor bookings, vocal soloists, or festival co-productions:</p>
-        <a href="mailto:info@ronselmanagement.com" class="contact-email">info@ronselmanagement.com</a>
+      <div class="contact-card">
+        
+        <!-- Encabezado con ornamento -->
+        <div class="contact-header">
+          <span class="badge">Inquiries & Engagements</span>
+          <h2>Commence a Collaboration</h2>
+          <div class="motto-divider contact-divider"><span>♦</span></div>
+          <p class="contact-subtitle">
+            Whether programming an orchestral season, casting a lyric production, or curating an international festival, our team provides thoughtful artistic partnership.
+          </p>
+        </div>
+
+        <!-- Canales de contacto diferenciados -->
+        <div class="contact-channels">
+          <div class="channel-item">
+            <span class="channel-label">Bookings & Artistic Planning</span>
+            <p class="channel-desc">Guest conductors, vocal soloists & bespoke scenic productions.</p>
+            <a href="mailto:info@ronselmanagement.com?subject=Booking%20Inquiry" class="channel-link">
+              info@ronselmanagement.com
+            </a>
+          </div>
+
+          <div class="channel-divider"></div>
+
+          <div class="channel-item">
+            <span class="channel-label">General & Press Office</span>
+            <p class="channel-desc">Press kits, high-res materials & institutional inquiries.</p>
+            <a href="mailto:info@ronselmanagement.com?subject=General%20Inquiry" class="channel-link">
+              contact@ronselmanagement.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Acción directa -->
+        <div class="contact-footer-cta">
+          <a href="mailto:info@ronselmanagement.com" class="btn btn-primary contact-btn">
+            Initiate Conversation
+          </a>
+          <span class="contact-location-tag">Based in Spain · Touring Internationally</span>
+        </div>
+
       </div>
     </div>
   </section>
