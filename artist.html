@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artist Profile | Ronsel Management</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="mainHeader">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link">
+        <div class="logo-text">
+          <span class="logo-title">RONSEL</span>
+          <span class="logo-sub">Artist Management & Productions</span>
+        </div>
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-wrapper" id="navWrapper">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-item">Home</a></li>
+          <li><a href="index.html#roster" class="nav-item">Artists</a></li>
+          <li><a href="index.html#about" class="nav-item">About</a></li>
+          <li><a href="index.html#mission" class="nav-item">Philosophy</a></li>
+          <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
+  </header>
+
+  <!-- Ficha del Artista (Plantilla Dinámica) -->
+  <main class="artist-detail-container">
+    <div class="container">
+      
+      <!-- Navegación de vuelta al catálogo -->
+      <div class="artist-breadcrumb">
+        <a href="index.html#roster">← Back to Artists Roster</a>
+      </div>
+
+      <!-- Cabecera del Artista -->
+      <div class="artist-hero-layout">
+        <div class="artist-portrait-col">
+          <div class="artist-portrait-wrapper">
+            <img id="artist-avatar" src="" alt="Artist portrait" />
+          </div>
+        </div>
+
+        <div class="artist-header-col">
+          <span class="badge" id="artist-discipline"></span>
+          <h1 id="artist-name"></h1>
+          <p class="artist-header-origin" id="artist-origin"></p>
+          
+          <div class="artist-bio-text" id="artist-bio">
+            <!-- Biografía completa inyectada por JS -->
+          </div>
+
+          <div class="artist-inquiry-box">
+            <a href="mailto:info@ronselmanagement.com?subject=Booking%20Inquiry" class="btn btn-primary">
+              Request Availability & Dossier
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Galería Audiovisual (Videos embebidos de YouTube) -->
+      <section class="artist-media-section" id="media-section" style="display: none;">
+        <div class="section-header">
+          <span class="badge">Audiovisual</span>
+          <h2>Selected Performances</h2>
+        </div>
+        <div class="videos-grid" id="artist-videos">
+          <!-- JS inyectará los iframes -->
+        </div>
+      </section>
+
+      <!-- Galería de Fotos (si existen) -->
+      <section class="artist-gallery-section" id="gallery-section" style="display: none;">
+        <div class="section-header">
+          <span class="badge">Gallery</span>
+          <h2>Visual Archive</h2>
+        </div>
+        <div class="gallery-grid" id="artist-gallery">
+          <!-- JS inyectará las fotos -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer Compartido -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-text">
+            <span class="logo-title">RONSEL</span>
+            <span class="logo-sub">Artist Management & Productions</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Music leaves an enduring wake across stages and audiences.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:info@ronselmanagement.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#roster">Artists Roster</a></li>
+          <li><a href="index.html#about">About Ronsel</a></li>
+          <li><a href="index.html#mission">Philosophy & Mission</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Disciplines</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#roster">Conductors</a></li>
+          <li><a href="index.html#roster">Lyric Voices</a></li>
+          <li><a href="index.html#roster">Stage Productions</a></li>
+          <li><a href="index.html#roster">Lyric Festivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Direct Contact</h4>
+        <p class="footer-contact-item">General Inquiries & Bookings:</p>
+        <a href="mailto:info@ronselmanagement.com" class="footer-contact-link">info@ronselmanagement.com</a>
+        <p class="footer-contact-note">Spain · International Touring</p>
+      </div>
+    </div>
+    <div class="subfooter">
+      <div class="subfooter-container">
+        <p class="subfooter-copyright">&copy; 2026 Ronsel: Artist Management & Productions. All rights reserved.</p>
+        <p class="subfooter-credit">Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/artist.js"></script>
+</body>
+</html>

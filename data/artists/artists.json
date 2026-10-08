@@ -3,7 +3,49 @@
     "id": "gena-lievano",
     "name": "Gena Liévano",
     "discipline": "Conductor",
+    "origin": "Venezuela · Italy",
     "avatar": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
-    "bio_summary": "One of the most promising international conductors, whose music leaves a profound trace in audiences."
+    "bio_summary": "One of the most promising international conductors, whose music leaves a profound trace in audiences.",
+    "bio_full": "Acclaimed as one of the most promising international conductors of her generation, Gena Liévano brings intellectual rigor, dynamic podium presence, and profound communicative depth to both symphonic repertoire and opera productions.<br><br>Her interpretations leave an enduring trace across European and international stages, combining meticulous score fidelity with rare emotional resonance.",
+    "gallery": [
+      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+    ],
+    "youtube_links": [
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    ]
+  },
+  {
+    "id": "alessandro-rossi",
+    "name": "Alessandro Rossi",
+    "discipline": "Lyric Voices",
+    "origin": "Italy",
+    "avatar": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80",
+    "bio_summary": "Versatile bel canto tenor celebrated across European opera houses.",
+    "bio_full": "Alessandro Rossi has established himself as a sought-after tenor for bel canto and romantic repertoire, performing regularly in major European opera theaters.",
+    "gallery": [],
+    "youtube_links": []
+  },
+  {
+    "id": "clara-mende",
+    "name": "Clara Mende",
+    "discipline": "Lyric Voices",
+    "origin": "Germany",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    "bio_summary": "Soprano distinguished for nuanced Mahler and Strauss vocal cycles.",
+    "bio_full": "Celebrated for her expressive nuance and radiant timbre, Clara Mende specializes in late romantic vocal literature and orchestral song cycles.",
+    "gallery": [],
+    "youtube_links": []
+  },
+  {
+    "id": "mare-nostrum",
+    "name": "Mare Nostrum Scenic Project",
+    "discipline": "Productions",
+    "origin": "Spain · International",
+    "avatar": "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80",
+    "bio_summary": "Bespoke staged lyric productions exploring Mediterranean musical heritage.",
+    "bio_full": "A cross-cultural stage initiative blending chamber opera, period instruments, and evocative Mediterranean scenography.",
+    "gallery": [],
+    "youtube_links": []
   }
 ]

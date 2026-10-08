@@ -15,7 +15,6 @@ function initHeaderControls() {
   const langDropdown = document.querySelector('.lang-dropdown');
   const langCurrent = document.querySelector('.lang-current');
 
-  // Shrink header al bajar más de 50px
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
@@ -24,7 +23,6 @@ function initHeaderControls() {
     }
   });
 
-  // Toggle del menú en dispositivos móviles
   function toggleMobileMenu() {
     const isOpen = navWrapper.classList.toggle('open');
     mobileBtn.classList.toggle('open');
@@ -36,15 +34,9 @@ function initHeaderControls() {
     }
   }
 
-  if (mobileBtn) {
-    mobileBtn.addEventListener('click', toggleMobileMenu);
-  }
+  if (mobileBtn) mobileBtn.addEventListener('click', toggleMobileMenu);
+  if (menuOverlay) menuOverlay.addEventListener('click', toggleMobileMenu);
 
-  if (menuOverlay) {
-    menuOverlay.addEventListener('click', toggleMobileMenu);
-  }
-
-  // Cierre automático del menú lateral al pulsar un enlace de sección
   document.querySelectorAll('.nav-menu a:not(.lang-current)').forEach(link => {
     link.addEventListener('click', () => {
       if (navWrapper && navWrapper.classList.contains('open')) {
@@ -53,7 +45,6 @@ function initHeaderControls() {
     });
   });
 
-  // Selector de idioma: abrir/cerrar limpiamente al click o tap
   if (langCurrent && langDropdown) {
     langCurrent.addEventListener('click', (e) => {
       e.preventDefault();
@@ -61,7 +52,6 @@ function initHeaderControls() {
       langDropdown.classList.toggle('open');
     });
 
-    // Cerrar al hacer clic en cualquier opción de idioma
     const langLinks = langDropdown.querySelectorAll('.lang-options a');
     langLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -72,7 +62,6 @@ function initHeaderControls() {
       });
     });
 
-    // Cerrar si se hace click fuera
     document.addEventListener('click', (e) => {
       if (!langDropdown.contains(e.target)) {
         langDropdown.classList.remove('open');
@@ -160,11 +149,10 @@ function initWakeCanvas() {
 }
 
 /* =========================================================================
-   3. Carga, Aleatoriedad y Renderizado del Roster de Artistas
+   3. Carga aleatoria y Renderizado del Roster de Artistas
    ========================================================================= */
 let allArtists = [];
 
-// Fisher-Yates shuffle
 function shuffleArray(array) {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -174,22 +162,11 @@ function shuffleArray(array) {
   return shuffled;
 }
 
-// Datos de fallback en memoria por si se prueba en file:/// sin servidor local
-const localArtistsFallback = [
-  {
-    id: "gena-lievano",
-    name: "Gena Liévano",
-    discipline: "Conductor",
-    origin: "Venezuela · Italy",
-    avatar: "assets/images/artists/gena-lievano.jpg"
-  }
-];
-
 function loadArtists() {
   const container = document.getElementById('featured-artists');
   if (!container) return;
 
-  fetch('data/artists.json')
+  fetch('data/artists/artists.json')
     .then(res => {
       if (!res.ok) throw new Error('Could not fetch artists.');
       return res.json();
@@ -200,10 +177,8 @@ function loadArtists() {
       setupFilters();
     })
     .catch(err => {
-      console.warn('Cargando artistas de respaldo local:', err);
-      allArtists = shuffleArray(localArtistsFallback);
-      renderArtists(allArtists);
-      setupFilters();
+      console.error('Error al cargar data/artists.json:', err);
+      container.innerHTML = '<p class="text-muted" style="grid-column: 1/-1; text-align: center;">Unable to load artists at this time.</p>';
     });
 }
 
