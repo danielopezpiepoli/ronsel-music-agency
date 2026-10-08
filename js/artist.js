@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadArtistProfile();
   initImageLightbox();
   initVideoLightbox();
+  syncLanguageLinksWithArtistId();
 });
 
 /* =========================================================================
@@ -27,6 +28,23 @@ function initArtistHeader() {
 
   if (mobileBtn) mobileBtn.addEventListener('click', toggleMenu);
   if (menuOverlay) menuOverlay.addEventListener('click', toggleMenu);
+}
+
+// Mantiene el parámetro ?id= al cambiar de idioma en la ficha del artista
+function syncLanguageLinksWithArtistId() {
+  const params = new URLSearchParams(window.location.search);
+  const artistId = params.get('id');
+  if (!artistId) return;
+
+  const langLinks = document.querySelectorAll('.lang-options .lang-item');
+  langLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const url = new URL(href, window.location.origin);
+    const lang = url.searchParams.get('lang');
+    if (lang) {
+      link.setAttribute('href', `?id=${encodeURIComponent(artistId)}&lang=${lang}`);
+    }
+  });
 }
 
 function getYouTubeId(url) {

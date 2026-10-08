@@ -32,9 +32,58 @@
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-item">Home</a></li>
           <li><a href="roster.html" class="nav-item active">Artists</a></li>
-          <li><a href="index.html#about" class="nav-item">About</a></li>
-          <li><a href="index.html#mission" class="nav-item">Philosophy</a></li>
-          <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+          <li><a href="about.html" class="nav-item">About</a></li>
+          <li><a href="mission.html" class="nav-item">Philosophy</a></li>
+          <li><a href="contact.html" class="nav-item">Contact</a></li>
+
+          <!-- Selector de Idiomas (6 Idiomas) -->
+          <li class="dropdown lang-dropdown">
+            <button class="dropdown-trigger lang-current" type="button" aria-haspopup="true">
+              <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="lang-flag" />
+              <span>EN</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown-content lang-options">
+              <li>
+                <a href="?lang=en" class="lang-item">
+                  <img src="https://flagcdn.com/w20/gb.png" alt="EN" />
+                  <span>English (EN)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=es" class="lang-item">
+                  <img src="https://flagcdn.com/w20/es.png" alt="ES" />
+                  <span>Español (ES)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=it" class="lang-item">
+                  <img src="https://flagcdn.com/w20/it.png" alt="IT" />
+                  <span>Italiano (IT)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=fr" class="lang-item">
+                  <img src="https://flagcdn.com/w20/fr.png" alt="FR" />
+                  <span>Français (FR)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=pt" class="lang-item">
+                  <img src="https://flagcdn.com/w20/pt.png" alt="PT" />
+                  <span>Português (PT)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=de" class="lang-item">
+                  <img src="https://flagcdn.com/w20/de.png" alt="DE" />
+                  <span>Deutsch (DE)</span>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <div class="menu-overlay" id="menuOverlay"></div>
@@ -68,9 +117,13 @@
     </div>
   </main>
 
-  <!-- Footer Compartido -->
+  <!-- =========================================
+       FOOTER & SUBFOOTER
+       ========================================= -->
   <footer class="site-footer">
     <div class="footer-grid">
+      
+      <!-- Columna 1: Identidad & Redes -->
       <div class="footer-col footer-brand">
         <a href="index.html" class="logo-link">
           <div class="logo-text">
@@ -79,43 +132,74 @@
           </div>
         </a>
         <p class="footer-tagline">Music leaves an enduring wake across stages and audiences.</p>
+        
         <div class="footer-socials">
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="mailto:info@ronselmanagement.com"><i class="fa-regular fa-envelope"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:info@ronselmanagement.com" aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
         </div>
-      </div>
+      </div> <!-- Cierre columna 1 -->
+
+      <!-- Columna 2: Navegación -->
       <div class="footer-col">
         <h4 class="footer-heading">Navigation</h4>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="roster.html">Artists Roster</a></li>
-          <li><a href="index.html#about">About Ronsel</a></li>
-          <li><a href="index.html#mission">Philosophy & Mission</a></li>
+          <li><a href="about.html">About Ronsel</a></li>
+          <li><a href="mission.html">Philosophy & Mission</a></li>
         </ul>
-      </div>
+      </div> <!-- Cierre columna 2 -->
+
+      <!-- Columna 3: Disciplinas -->
       <div class="footer-col">
         <h4 class="footer-heading">Disciplines</h4>
         <ul class="footer-links">
-          <li><a href="roster.html">Conductors</a></li>
-          <li><a href="roster.html">Lyric Voices</a></li>
-          <li><a href="roster.html">Instrumentalists</a></li>
-          <li><a href="roster.html">Stage Productions</a></li>
+          <li><a href="roster.html?filter=conductor">Conductors</a></li>
+          <li><a href="roster.html?filter=voice">Lyric Voices</a></li>
+          <li><a href="roster.html?filter=instrument">Instrumentalists</a></li>
+          <li><a href="roster.html?filter=production">Stage Productions</a></li>
         </ul>
-      </div>
+      </div> <!-- Cierre columna 3 -->
+
+      <!-- Columna 4: Contacto -->
       <div class="footer-col">
         <h4 class="footer-heading">Direct Contact</h4>
         <p class="footer-contact-item">General Inquiries & Bookings:</p>
         <a href="mailto:info@ronselmanagement.com" class="footer-contact-link">info@ronselmanagement.com</a>
         <p class="footer-contact-note">Spain · International Touring</p>
-      </div>
-    </div>
+      </div> <!-- Cierre columna 4 -->
+
+    </div> <!-- Cierre footer-grid -->
+
+    <!-- Subfooter (Franja inferior independiente) -->
     <div class="subfooter">
       <div class="subfooter-container">
-        <p class="subfooter-copyright">&copy; 2026 Ronsel: Artist Management & Productions. All rights reserved.</p>
-        <p class="subfooter-credit">Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a></p>
+        <p class="subfooter-copyright">
+          &copy; 2026 Ronsel: Artist Management & Productions. All rights reserved.
+        </p>
+        <div class="subfooter-legal">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="legal-notice.html">Legal Notice</a>
+          <span>|</span>
+          <a href="cookies.html">Cookies</a>
+        </div>
+        <p class="subfooter-credit">
+          Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a>
+        </p>
       </div>
     </div>
   </footer>

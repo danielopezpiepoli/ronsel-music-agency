@@ -39,33 +39,33 @@
     "name": "Louis Luciat",
     "discipline": "Oboe",
     "origin": "France",
-    "avatar": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80",
+    "avatar": "https://images.unsplash.com/photo-1772371272179-3ecc656fc677?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhcnRvb24lMjBtYW58ZW58MHx8MHx8fDA%3D",
     "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
     "bio_full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "gallery": [
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3NpY2FsJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D",
+            "caption": "Rehearsal with orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1519682718457-c82ce8296645?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Concert with the orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Rehearsal with the ensemble"
         }
     ],
     "youtube_links": [
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/fca1iAvksxw?si=iJQm66q8IRwKVO0S",
+            "title": "F. Schubert: Unfinished Symphony",
+            "ensemble": "Anima Orchestre"
         },
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/c3KrHWZN81M?si=Q7MYTTKCg47rQsR8",
+            "title": "C. Saint-Saens: Danse Macabre",
+            "ensemble": "Anima Orchestre"
         }
     ]
   },
@@ -74,32 +74,32 @@
     "name": "Teresa Cos",
     "discipline": "Piano",
     "origin": "Venezuela",
-    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+    "avatar": "https://images.unsplash.com/photo-1706694668159-42105c6c99c9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNhcnRvb24lMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D",
     "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "gallery": [
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3NpY2FsJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D",
+            "caption": "Rehearsal with orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1519682718457-c82ce8296645?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Concert with the orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Rehearsal with the ensemble"
         }
     ],
     "youtube_links": [
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/fca1iAvksxw?si=iJQm66q8IRwKVO0S",
+            "title": "F. Schubert: Unfinished Symphony",
+            "ensemble": "Anima Orchestre"
         },
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/c3KrHWZN81M?si=Q7MYTTKCg47rQsR8",
+            "title": "C. Saint-Saens: Danse Macabre",
+            "ensemble": "Anima Orchestre"
         }
     ]
   },
@@ -108,32 +108,32 @@
     "name": "Belén Pérez",
     "discipline": "Contralto",
     "origin": "Spain",
-    "avatar": "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80",
+    "avatar": "https://images.unsplash.com/photo-1706694668159-42105c6c99c9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNhcnRvb24lMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D",
     "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "gallery": [
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3NpY2FsJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D",
+            "caption": "Rehearsal with orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1519682718457-c82ce8296645?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Concert with the orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Rehearsal with the ensemble"
         }
     ],
     "youtube_links": [
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/fca1iAvksxw?si=iJQm66q8IRwKVO0S",
+            "title": "F. Schubert: Unfinished Symphony",
+            "ensemble": "Anima Orchestre"
         },
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/c3KrHWZN81M?si=Q7MYTTKCg47rQsR8",
+            "title": "C. Saint-Saens: Danse Macabre",
+            "ensemble": "Anima Orchestre"
         }
     ]
   },
@@ -142,32 +142,32 @@
     "name": "Svetla Krasteva",
     "discipline": "Piano",
     "origin": "Bulgaria",
-    "avatar": "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80",
+    "avatar": "https://images.unsplash.com/photo-1706694668159-42105c6c99c9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNhcnRvb24lMjB3b21hbnxlbnwwfHwwfHx8MA%3D%3D",
     "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "gallery": [
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3NpY2FsJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D",
+            "caption": "Rehearsal with orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1519682718457-c82ce8296645?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Concert with the orchestra"
         },
         {
-            "src": "",
-            "caption": ""
+            "src": "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNsYXNzaWNhbCUyMG11c2ljfGVufDB8fDB8fHww",
+            "caption": "Rehearsal with the ensemble"
         }
     ],
     "youtube_links": [
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/fca1iAvksxw?si=iJQm66q8IRwKVO0S",
+            "title": "F. Schubert: Unfinished Symphony",
+            "ensemble": "Anima Orchestre"
         },
         {
-            "url": "",
-            "title": "",
-            "ensemble": ""
+            "url": "https://youtu.be/c3KrHWZN81M?si=Q7MYTTKCg47rQsR8",
+            "title": "C. Saint-Saens: Danse Macabre",
+            "ensemble": "Anima Orchestre"
         }
     ]
   }
