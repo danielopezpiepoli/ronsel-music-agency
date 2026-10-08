@@ -172,12 +172,17 @@ function loadArtists() {
       return res.json();
     })
     .then(data => {
-      allArtists = shuffleArray(data);
+      // 1. Barajamos todos los artistas
+      const shuffled = shuffleArray(data);
+      
+      // 2. Tomamos solo 4 para la Home aleatoria
+      allArtists = shuffled.slice(0, 4);
+      
       renderArtists(allArtists);
       setupFilters();
     })
     .catch(err => {
-      console.error('Error al cargar data/artists.json:', err);
+      console.error('Error al cargar data/artists/artists.json:', err);
       container.innerHTML = '<p class="text-muted" style="grid-column: 1/-1; text-align: center;">Unable to load artists at this time.</p>';
     });
 }
@@ -212,26 +217,87 @@ function renderArtists(list) {
   `).join('');
 }
 
+/* =========================================================================
+   Control de Filtros por Categoría (Incluye plantilla orquestal completa)
+   ========================================================================= */
 function setupFilters() {
   const buttons = document.querySelectorAll('.filter-btn');
+
+  // Catálogo exhaustivo de instrumentos orquestales y solistas (multilingüe EN/ES/IT)
+  const orchestraKeywords = [
+    // Teclados
+    'piano', 'fortepiano', 'harpsichord', 'clavecin', 'clavecín', 'organ', 'órgano', 'celesta',
+    
+    // Cuerdas frotadas y pulsadas
+    'violin', 'violín', 'viola', 'violoncello', 'cello', 'violonchelo', 'double bass', 'contrabass', 
+    'contrabajo', 'harp', 'arpa', 'guitar', 'guitarra', 'lute', 'laúd', 'theorbo', 'tiorba',
+    
+    // Maderas
+    'flute', 'flauta', 'piccolo', 'oboe', 'cor anglais', 'english horn', 'cuerno inglés', 
+    'clarinet', 'clarinete', 'bassoon', 'fagot', 'contrabassoon', 'contrafagot', 'saxophone', 'saxofón',
+    
+    // Metales
+    'horn', 'french horn', 'trompa', 'corno', 'trumpet', 'trompeta', 'trombone', 'trombón', 'tuba',
+    
+    // Percusión
+    'percussion', 'percusión', 'timpani', 'timbales', 'marimba', 'vibraphone',
+    
+    // Genéricos
+    'instrument', 'instrumentist', 'instrumentista', 'soloist', 'solista'
+  ];
+
+  // Términos vocales
+  const voiceKeywords = [
+    'voice', 'voz', 'vocal', 'lyric', 'lírico', 'soprano', 'mezzo', 'mezzosoprano', 
+    'contralto', 'tenor', 'baritone', 'barítono', 'bass', 'bajo', 'countertenor', 'contratenor'
+  ];
+
+  // Dirección
+  const conductorKeywords = [
+    'conductor', 'director', 'directora', 'conducting', 'maestro', 'dirección'
+  ];
+
+  // Proyectos escénicos / Festivales
+  const productionKeywords = [
+    'production', 'producción', 'scenic', 'escénica', 'project', 'proyecto', 
+    'festival', 'ensemble', 'orchestra', 'orquesta', 'choir', 'coro', 'theatre', 'teatro'
+  ];
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filter = btn.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter').toLowerCase();
 
       if (filter === 'all') {
         renderArtists(allArtists);
-      } else {
-        const filtered = allArtists.filter(a => {
-          const disc = (a.discipline || '').toLowerCase();
-          const target = filter.toLowerCase();
-          return disc.includes(target) || (target === 'voice' && disc.includes('lyric'));
-        });
-        renderArtists(filtered);
+        return;
       }
+
+      const filtered = allArtists.filter(a => {
+        const discipline = (a.discipline || '').toLowerCase();
+
+        if (filter === 'conductor') {
+          return conductorKeywords.some(keyword => discipline.includes(keyword));
+        }
+
+        if (filter === 'voice') {
+          return voiceKeywords.some(keyword => discipline.includes(keyword));
+        }
+
+        if (filter === 'instrument' || filter === 'instrumentalist' || filter === 'soloist') {
+          return orchestraKeywords.some(keyword => discipline.includes(keyword));
+        }
+
+        if (filter === 'production') {
+          return productionKeywords.some(keyword => discipline.includes(keyword));
+        }
+
+        return discipline.includes(filter);
+      });
+
+      renderArtists(filtered);
     });
   });
 }

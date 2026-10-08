@@ -159,12 +159,20 @@
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="conductor">Conductors</button>
         <button class="filter-btn" data-filter="voice">Lyric Voices</button>
+        <button class="filter-btn" data-filter="instrument">Instrumentalists</button>
         <button class="filter-btn" data-filter="production">Productions</button>
       </div>
 
-      <!-- Contenedor dinámico (donde el JS inyecta las tarjetas aleatorias) -->
+      <!-- Contenedor dinámico (donde el JS inyecta las 4 tarjetas aleatorias) -->
       <div class="artists-grid" id="featured-artists">
         <!-- El JS genera aquí adentro las miniaturas, nombres y orígenes -->
+      </div>
+
+      <!-- Botón para ver el catálogo completo -->
+      <div class="roster-view-all">
+        <a href="roster.html" class="btn btn-secondary">
+          View Complete Roster &rarr;
+        </a>
       </div>
 
     </div>

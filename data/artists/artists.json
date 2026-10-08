@@ -4,48 +4,171 @@
     "name": "Gena Liévano",
     "discipline": "Conductor",
     "origin": "Venezuela · Italy",
-    "avatar": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+    "avatar": "assets/uploads/gena-lievano-portrait.jpg",
     "bio_summary": "One of the most promising international conductors, whose music leaves a profound trace in audiences.",
-    "bio_full": "Acclaimed as one of the most promising international conductors of her generation, Gena Liévano brings intellectual rigor, dynamic podium presence, and profound communicative depth to both symphonic repertoire and opera productions.<br><br>Her interpretations leave an enduring trace across European and international stages, combining meticulous score fidelity with rare emotional resonance.",
+    "bio_full": "Venezuelan conductor born in Caracas in 1998, Gena began her musical training at a very young age with her mother, a pianist. At ten, she joined the El Sistema program, where she learned to play the oboe and performed with numerous orchestras. In 2013, she was appointed Stage Manager for the Primo Casale opera company, with which she participated in a dozen operatic productions.<br><br>In 2015, Gena moved to Paris to continue her oboe studies and begin her conducting studies. After obtaining a Master's degree in Musicology from the Sorbonne University, three diplomas in musical studies, and a State diploma, she has dedicated herself fully to conducting since 2020.<br><br>Gena has participated in numerous masterclasses in France, the United Kingdom, Greece, the Czech Republic, and the Netherlands. He has had the opportunity to receive guidance from leading figures in conducting, such as Bertrand de Billy, Sian Edwards, Nicolas Pasquet, Johannes Schlaefli, Claire Gibault, Marc Korovitch, Claire Levacher, Alice Farnham, Martin Sieghart, and Michalis Economou. He also served as an assistant to Cyril Diederich (Barber of Seville and La Traviata), John Fiore (Kattenburg Competition), and Guillaume Bourgogne (Lausanne Society for Contemporary Music).<br><br>In 2022, he founded Anima, an orchestra and opera company, with a professional focus, which performs regularly in France and Spain. Since its inception, the ensemble has premiered a dozen works, including the five-act opera Blackbeard, which will be revived at the Massy Opera House in 2026.<br><br>She was the first guest conductor to lead the University of Alicante Philharmonic Orchestra in the summer of 2025.<br><br>Gena holds a master's degree in orchestral conducting from the Haute École de Musique de Lausanne in Switzerland and was awarded the Prix Tremplin by the Leenards-HEMU Foundation in 2025.",
     "gallery": [
-      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+        {
+            "src": "assets/uploads/gena-lievano-rehearsal-ofua-2025.jpg",
+            "caption": "Rehearsal with Alicante University Philharmonic"
+        },
+        {
+            "src": "assets/uploads/gena-lievano-rehearsal-ofua-2025-3.jpg",
+            "caption": "Rehearsal with Alicante University Philharmonic"
+        },
+        {
+            "src": "assets/uploads/gena-lievano-rehearsal-1.jpg",
+            "caption": "Rehearsal with Alicante University Philharmonic"
+        }
     ],
     "youtube_links": [
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        {
+            "url": "https://youtu.be/fca1iAvksxw?si=iJQm66q8IRwKVO0S",
+            "title": "F. Schubert: Unfinished Symphony",
+            "ensemble": "Anima Orchestre"
+        },
+        {
+            "url": "https://youtu.be/c3KrHWZN81M?si=Q7MYTTKCg47rQsR8",
+            "title": "C. Saint-Saens: Danse Macabre",
+            "ensemble": "Anima Orchestre"
+        }
     ]
   },
   {
-    "id": "alessandro-rossi",
-    "name": "Alessandro Rossi",
-    "discipline": "Lyric Voices",
-    "origin": "Italy",
+    "id": "louis-luciat",
+    "name": "Louis Luciat",
+    "discipline": "Oboe",
+    "origin": "France",
     "avatar": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80",
-    "bio_summary": "Versatile bel canto tenor celebrated across European opera houses.",
-    "bio_full": "Alessandro Rossi has established himself as a sought-after tenor for bel canto and romantic repertoire, performing regularly in major European opera theaters.",
-    "gallery": [],
-    "youtube_links": []
+    "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.",
+    "bio_full": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "gallery": [
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        }
+    ],
+    "youtube_links": [
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        },
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        }
+    ]
   },
   {
-    "id": "clara-mende",
-    "name": "Clara Mende",
-    "discipline": "Lyric Voices",
-    "origin": "Germany",
+    "id": "teresa-cos",
+    "name": "Teresa Cos",
+    "discipline": "Piano",
+    "origin": "Venezuela",
     "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-    "bio_summary": "Soprano distinguished for nuanced Mahler and Strauss vocal cycles.",
-    "bio_full": "Celebrated for her expressive nuance and radiant timbre, Clara Mende specializes in late romantic vocal literature and orchestral song cycles.",
-    "gallery": [],
-    "youtube_links": []
+    "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "gallery": [
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        }
+    ],
+    "youtube_links": [
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        },
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        }
+    ]
   },
   {
-    "id": "mare-nostrum",
-    "name": "Mare Nostrum Scenic Project",
-    "discipline": "Productions",
-    "origin": "Spain · International",
+    "id": "belen-perez",
+    "name": "Belén Pérez",
+    "discipline": "Contralto",
+    "origin": "Spain",
     "avatar": "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80",
-    "bio_summary": "Bespoke staged lyric productions exploring Mediterranean musical heritage.",
-    "bio_full": "A cross-cultural stage initiative blending chamber opera, period instruments, and evocative Mediterranean scenography.",
-    "gallery": [],
-    "youtube_links": []
+    "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "gallery": [
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        }
+    ],
+    "youtube_links": [
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        },
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        }
+    ]
+  },
+  {
+    "id": "svetla-krasteva",
+    "name": "Svetla Krasteva",
+    "discipline": "Piano",
+    "origin": "Bulgaria",
+    "avatar": "https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80",
+    "bio_summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "gallery": [
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        },
+        {
+            "src": "",
+            "caption": ""
+        }
+    ],
+    "youtube_links": [
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        },
+        {
+            "url": "",
+            "title": "",
+            "ensemble": ""
+        }
+    ]
   }
 ]

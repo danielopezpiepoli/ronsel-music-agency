@@ -152,6 +152,39 @@
     </div>
   </footer>
 
+  <!-- Modal Lightbox para visualización ampliada de imágenes con pie de foto -->
+  <div id="imageLightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close image preview">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Previous image">&#10094;</button>
+    
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Enlarged gallery preview" />
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Next image">&#10095;</button>
+  </div>
+
+  <!-- Modal Lightbox para Videos de YouTube -->
+  <div id="videoLightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" id="videoCloseBtn" aria-label="Close video player">&times;</button>
+    <div class="video-modal-content">
+      <div class="video-modal-iframe-wrapper">
+        <iframe 
+          id="videoLightboxIframe" 
+          src="" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/artist.js"></script>
+</body>
+
   <script src="js/artist.js"></script>
 </body>
 </html>
