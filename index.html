@@ -4,117 +4,332 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ronsel | Artist Management & Productions</title>
-  <meta name="description" content="Ronsel: Artist Management & Productions. Music leaves a wake. Artist representation, touring, and bespoke productions." />
+  <meta name="description" content="Ronsel: Artist Management & Productions. Music leaves a wake. Lyric music, conductors, and bespoke stage productions." />
   
-  <!-- Tipografía Google Fonts (Playfair Display para títulos, Inter para lectura) -->
+  <!-- Tipografías elegantes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- Navegación -->
-  <header class="site-header">
-    <nav class="nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-title">RONSEL</span>
-        <span class="logo-sub">Artist Management & Productions</span>
+  <!-- =========================================
+       HEADER & NAVEGACIÓN PRINCIPAL
+       ========================================= -->
+  <header class="site-header" id="mainHeader">
+    <div class="nav-container">
+      <!-- Logo clickeable siempre a Home -->
+      <a href="index.html" class="logo-link">
+        <div class="logo-text">
+          <span class="logo-title">RONSEL</span>
+          <span class="logo-sub">Artist Management & Productions</span>
+        </div>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="artists.html">Artists</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+
+      <!-- Botón Menú Hamburguesa para Móvil -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <!-- Navegación y Selector de Idioma -->
+      <nav class="nav-wrapper" id="navWrapper">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-item">Home</a></li>
+          <li><a href="#roster" class="nav-item">Artists</a></li>
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#mission" class="nav-item">Philosophy</a></li>
+          <li><a href="#contact" class="nav-item">Contact</a></li>
+
+          <!-- Selector de Idiomas (6 Idiomas) -->
+          <li class="dropdown lang-dropdown">
+            <button class="dropdown-trigger lang-current" type="button" aria-haspopup="true">
+              <img src="https://flagcdn.com/w20/gb.png" alt="EN" class="lang-flag" />
+              <span>EN</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown-content lang-options">
+              <li>
+                <a href="?lang=en" class="lang-item">
+                  <img src="https://flagcdn.com/w20/gb.png" alt="EN" />
+                  <span>English (EN)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=es" class="lang-item">
+                  <img src="https://flagcdn.com/w20/es.png" alt="ES" />
+                  <span>Español (ES)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=it" class="lang-item">
+                  <img src="https://flagcdn.com/w20/it.png" alt="IT" />
+                  <span>Italiano (IT)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=fr" class="lang-item">
+                  <img src="https://flagcdn.com/w20/fr.png" alt="FR" />
+                  <span>Français (FR)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=pt" class="lang-item">
+                  <img src="https://flagcdn.com/w20/pt.png" alt="PT" />
+                  <span>Português (PT)</span>
+                </a>
+              </li>
+              <li>
+                <a href="?lang=de" class="lang-item">
+                  <img src="https://flagcdn.com/w20/de.png" alt="DE" />
+                  <span>Deutsch (DE)</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Overlay oscuro al abrir menú móvil -->
+      <div class="menu-overlay" id="menuOverlay"></div>
+    </div>
   </header>
 
-  <!-- Hero Principal -->
+  <!-- Hero interactivo con canvas de estela -->
   <section class="hero">
-    <div class="hero-overlay"></div>
+    <canvas id="wake-canvas"></canvas>
     <div class="hero-content">
-      <p class="tagline">Music leaves a wake</p>
-      <h1>Artist management, representation & production</h1>
+      <div class="hero-brand-mark">
+        <span class="motto-tag">La música deja una estela</span>
+        <div class="motto-divider"><span>♦</span></div>
+      </div>
+      <h1>Music leaves an enduring wake</h1>
       <p class="hero-description">
-        Supporting exceptional performers, conductors, and ensembles in developing visionary careers and unforgettable stage experiences.
+        Artist management and scenic production dedicated to lyric music and international performing arts. Cultivating artistry with rigor, sensibility, and long-term vision.
       </p>
       <div class="hero-actions">
-        <a href="artists.html" class="btn btn-primary">Discover Artists</a>
-        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        <a href="#roster" class="btn btn-primary">Explore Roster</a>
+        <a href="#about" class="btn btn-secondary">Our Heritage</a>
+      </div>
+    </div>
+    
+    <!-- Separador inferior fluido de estela -->
+    <div class="wake-wave-separator">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,32L80,48C160,64,320,96,480,90.7C640,85,800,43,960,37.3C1120,32,1280,64,1360,80L1440,96L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Declaración Editorial / Manifiesto -->
+  <section id="about" class="section statement-section">
+    <div class="container text-center">
+      <span class="badge">Origin & Vision</span>
+      <blockquote class="manifesto-quote">
+        "Like the quiet furrow drawn by a vessel across open waters, authentic musical performance creates an imprint that outlasts the final silence."
+      </blockquote>
+      <p class="statement-body">
+        Founded on deep artistic ethics, <strong>Ronsel</strong> provides strategic management, international booking, and bespoke stage productions for conductors, lyric voices, and curated festivals across Europe and the Americas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Roster de Artistas con Filtros Interactivos -->
+  <section id="roster" class="section section-catalog">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Represented Talents</span>
+        <h2>The Roster</h2>
+        <p>A selective family of conductors, lyric vocalists, and musical innovators.</p>
+      </div>
+
+      <!-- Filtros interactivos -->
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Conductor">Conductors</button>
+        <button class="filter-btn" data-filter="Lyric">Lyric Voices</button>
+        <button class="filter-btn" data-filter="Ensemble">Ensembles & Stage</button>
+      </div>
+      
+      <div id="featured-artists" class="artists-grid">
+        <!-- Renderizado dinámicamente vía main.js -->
       </div>
     </div>
   </section>
 
-  <!-- Sección Destacada de Artistas (Se alimenta dinámicamente con JS) -->
-  <section class="section container">
-    <div class="section-header">
-      <h2>Roster</h2>
-      <p>Artists and ensembles of artistic excellence and creative distinction.</p>
-    </div>
-    
-    <div id="featured-artists" class="artists-grid">
-      <!-- Inyectado por main.js -->
-    </div>
-
-    <div class="center-cta">
-      <a href="artists.html" class="btn btn-outline">View Full Roster &rarr;</a>
-    </div>
-  </section>
-
-  <!-- Sobre la Agencia con sus 4 Pilares Reales -->
-  <section id="about" class="section section-dark">
+  <!-- Nuestra Misión / Cuatro Pilares -->
+  <section id="mission" class="section section-dark">
     <div class="container">
       <div class="section-header">
-        <span class="logo-sub">Our Mission</span>
-        <h2>What is Ronsel?</h2>
-        <p style="max-width: 750px; margin: 0.8rem auto 0 auto;">
-          An artist management and production agency dedicated to lyric music and the performing arts. We nurture talent with merit, dedication, long-term commitment, and deep sensitivity.
-        </p>
+        <span class="badge">Our Mission</span>
+        <h2>What Guides Our Wake</h2>
+        <p>Four cornerstones underpinning every production and partnership.</p>
       </div>
 
       <div class="pillars-grid">
-        <div class="pillar-item">
+        <!-- Pilar 1: Talento emergente -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22v-9m0 0C8 13 4 9 4 4c5 0 9 4 8 9zm0 0c4 0 8-4 8-9-5 0-9 4-8 9z"/>
+            </svg>
+          </div>
           <h3>Emerging Talent</h3>
-          <p>Providing international visibility, guidance, and strategic tools to launch new artistic voices.</p>
+          <p>Providing guidance, technical clarity, and international exposure for emerging artists who possess authentic interpretative voice.</p>
         </div>
-        <div class="pillar-item">
+
+        <!-- Pilar 2: Arte que sigue vivo (Ancla) -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="5" r="2.5"/>
+              <line x1="12" y1="7.5" x2="12" y2="21"/>
+              <line x1="8" y1="11" x2="16" y2="11"/>
+              <path d="M5 14a7 7 0 0 0 14 0"/>
+            </svg>
+          </div>
           <h3>Sustaining Living Art</h3>
-          <p>Accompanying consolidated careers, opening new venues where their voice and experience retain their rightful place.</p>
+          <p>Championing established performers by opening new stages where maturity, heritage, and depth of craft retain priority.</p>
         </div>
-        <div class="pillar-item">
+
+        <!-- Pilar 3: Creación de festivales -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+              <polygon points="12 13 13.5 16 17 16.5 14.5 19 15 22 12 20.5 9 22 9.5 19 7 16.5 10.5 16 12 13" fill="currentColor" fill-opacity="0.1"/>
+            </svg>
+          </div>
           <h3>Lyric Festivals</h3>
-          <p>Curating and producing unique lyric festivals rooted in sustainability, local heritage, and artistic excellence.</p>
+          <p>Curating opera, vocal masterclasses, and symphonic gatherings embedded directly within culturally evocative and maritime landscapes.</p>
         </div>
-        <div class="pillar-item">
+
+        <!-- Pilar 4: Proyectos con sentido -->
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
           <h3>Meaningful Projects</h3>
-          <p>Producing accessible, carefully crafted events that bring lyric music closer to diverse audiences.</p>
+          <p>Producing accessible, carefully shaped events that bridge rigorous classical traditions with diverse new concert audiences.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section id="contact" class="section container">
-    <div class="contact-box">
-      <h2>Start a Conversation</h2>
-      <p>For booking inquiries, press kits, or collaboration proposals:</p>
-      <a href="mailto:info@ronselmanagement.com" class="contact-email">info@ronselmanagement.com</a>
+  <!-- Contacto / Booking -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-box">
+        <span class="badge">Inquiries & Engagements</span>
+        <h2>Commence a Collaboration</h2>
+        <p>For guest conductor bookings, vocal soloists, or festival co-productions:</p>
+        <a href="mailto:info@ronselmanagement.com" class="contact-email">info@ronselmanagement.com</a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- =========================================
+       FOOTER & SUBFOOTER
+       ========================================= -->
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p>&copy; 2026 Ronsel: Artist Management & Productions. Todos los derechos reservados.</p>
-      <p class="credit">
-        Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a>
-      </p>
+    <div class="footer-grid">
+      
+      <!-- Columna 1: Identidad & Redes -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="logo-link">
+          <div class="logo-text">
+            <span class="logo-title">RONSEL</span>
+            <span class="logo-sub">Artist Management & Productions</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Music leaves an enduring wake across stages and audiences.</p>
+        
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:info@ronselmanagement.com" aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+      </div> <!-- Cierre columna 1 -->
+
+      <!-- Columna 2: Navegación -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#roster">Artists Roster</a></li>
+          <li><a href="#about">About Ronsel</a></li>
+          <li><a href="#mission">Philosophy & Mission</a></li>
+        </ul>
+      </div> <!-- Cierre columna 2 -->
+
+      <!-- Columna 3: Disciplinas -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Disciplines</h4>
+        <ul class="footer-links">
+          <li><a href="#roster">Conductors</a></li>
+          <li><a href="#roster">Lyric Voices</a></li>
+          <li><a href="#roster">Stage Productions</a></li>
+          <li><a href="#roster">Lyric Festivals</a></li>
+        </ul>
+      </div> <!-- Cierre columna 3 -->
+
+      <!-- Columna 4: Contacto -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Direct Contact</h4>
+        <p class="footer-contact-item">General Inquiries & Bookings:</p>
+        <a href="mailto:info@ronselmanagement.com" class="footer-contact-link">info@ronselmanagement.com</a>
+        <p class="footer-contact-note">Spain · International Touring</p>
+      </div> <!-- Cierre columna 4 -->
+
+    </div> <!-- Cierre footer-grid -->
+
+    <!-- Subfooter (Franja inferior independiente) -->
+    <div class="subfooter">
+      <div class="subfooter-container">
+        <p class="subfooter-copyright">
+          &copy; 2026 Ronsel: Artist Management & Productions. All rights reserved.
+        </p>
+        <div class="subfooter-legal">
+          <a href="#">Privacy Policy</a>
+          <span>|</span>
+          <a href="#">Legal Notice</a>
+          <span>|</span>
+          <a href="#">Cookies</a>
+        </div>
+        <p class="subfooter-credit">
+          Web Design by <a href="https://github.com/danielopezpiepoli" target="_blank" rel="noopener">Daniel López Piepoli</a>
+        </p>
+      </div>
     </div>
   </footer>
 
-  <!-- Script para pintar los artistas dinámicamente -->
   <script src="js/main.js"></script>
 </body>
 </html>

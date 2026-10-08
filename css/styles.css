@@ -1,25 +1,33 @@
+/* ==========================================================================
+   1. VARIABLES DE DISEÑO & CONFIGURACIÓN BASE
+   ========================================================================== */
+
+/* 1.1 Variables globales / Paleta cromática Ronsel */
 :root {
-  /* Paleta extraída de la identidad visual de Ronsel */
-  --bg-color: #f7f3ec;        /* Fondo marfil / pergamino claro */
-  --bg-card: #ffffff;         /* Blanco puro para tarjetas */
-  --bg-card-hover: #fcfbf9;
-  --bg-dark-section: #eee8de; /* Sección de contraste suave */
-  --text-main: #1c1a18;       /* Carbón / negro tinta */
-  --text-muted: #5e5953;      /* Gris sepia para textos secundarios */
-  --accent-gold: #aa7b38;     /* Dorado ocre cálido del logo/subtítulos */
-  --accent-gold-hover: #8f652b;
-  --border: rgba(28, 26, 24, 0.12);
-  --border-subtle: rgba(170, 123, 56, 0.3);
-  
+  --bg-color: #f6f3eb;        /* Marfil pergamino cálido */
+  --bg-card: #ffffff;
+  --bg-contrast: #ece6d8;     /* Arena suave */
+  --text-main: #181715;       /* Carbón / tinta negra */
+  --text-muted: #5e5952;
+  --accent-gold: #ab7c38;     /* Tono dorado / ocre */
+  --accent-gold-hover: #8e6224;
+  --border: rgba(24, 23, 21, 0.1);
+  --border-active: rgba(171, 124, 56, 0.5);
+
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* 1.2 Reseteo y normalización */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,20 +38,86 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 1.3 Clases de utilidad y envoltorios */
 .container {
   width: 90%;
   max-width: 1140px;
   margin: 0 auto;
 }
 
-/* Header & Nav */
-.site-header {
-  position: sticky;
-  top: 0;
-  background: rgba(247, 243, 236, 0.92);
-  backdrop-filter: blur(12px);
+.text-center {
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.section {
+  padding: 6.5rem 0;
+}
+
+.section-dark {
+  background-color: var(--bg-contrast);
+  border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  z-index: 100;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-header h2 {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+.section-header p {
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   2. HEADER & NAVEGACIÓN PRINCIPAL
+   ========================================================================== */
+
+/* 2.1 Header / Contenedor Fijo Permanente (No desaparece al scroll) */
+.site-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(246, 243, 235, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Compensación de espacio en el body para que el contenido no quede tapado */
+body {
+  padding-top: 85px; /* Altura original del header */
+}
+
+/* Estado encogido suave al hacer scroll */
+.site-header.scrolled {
+  background: rgba(246, 243, 235, 0.98);
+  box-shadow: 0 4px 18px rgba(24, 23, 21, 0.05);
+}
+
+.site-header.scrolled .nav-container {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 
 .nav-container {
@@ -51,98 +125,391 @@ body {
   margin: 0 auto;
   padding: 1.2rem 5%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  transition: padding 0.25s ease;
 }
 
-.logo {
-  text-decoration: none;
+/* 2.2 Header / Logotipo & Enlace a Home */
+.logo-link,
+.logo-link:visited,
+.logo-link:hover,
+.logo-link:active {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo-text {
   display: flex;
   flex-direction: column;
 }
 
 .logo-title {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
+  letter-spacing: 0.28em;
+  color: var(--text-main) !important;
   font-weight: 600;
-  letter-spacing: 0.25em;
-  color: var(--text-main);
+  line-height: 1.1;
+  text-decoration: none !important;
+  transition: font-size 0.25s ease;
+}
+
+.site-header.scrolled .logo-title {
+  font-size: 1.35rem;
 }
 
 .logo-sub {
   font-size: 0.62rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-gold);
+  color: var(--accent-gold) !important;
   font-weight: 500;
+  text-decoration: none !important;
+  transition: font-size 0.25s ease;
 }
 
-.nav-links {
+.site-header.scrolled .logo-sub {
+  font-size: 0.55rem;
+}
+
+/* 2.3 Header / Menú empujado a la derecha con aire */
+.nav-wrapper {
+  margin-left: auto;
+}
+
+.nav-menu {
   display: flex;
-  gap: 2.2rem;
   list-style: none;
+  align-items: center;
+  gap: 1.2rem; /* Espaciado entre opciones */
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links a {
+/* 2.4 Header / Opciones de menú con sombreado suave */
+.nav-item {
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.88rem;
   letter-spacing: 0.04em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
   transition: var(--transition);
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-item:hover {
   color: var(--text-main);
-  border-bottom: 1px solid var(--accent-gold);
-  padding-bottom: 2px;
+  background-color: rgba(171, 124, 56, 0.1); /* Sombreado hover */
 }
 
-/* Hero */
+.nav-item.active-nav {
+  color: var(--text-main);
+  background-color: rgba(171, 124, 56, 0.15); /* Sombreado activo */
+  font-weight: 500;
+}
+
+/* 2.5 Header / Selector de Idiomas (Dropdown) */
+.dropdown {
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.lang-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-current:hover {
+  background-color: rgba(171, 124, 56, 0.1);
+  border-color: var(--accent-gold);
+}
+
+.lang-flag {
+  width: 17px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.chevron-icon {
+  width: 11px;
+  height: 11px;
+  transition: transform 0.25s ease;
+}
+
+.dropdown:hover .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 170px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(24, 23, 21, 0.08);
+  list-style: none;
+  padding: 0.35rem 0;
+  border-radius: 4px;
+  z-index: 200;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.lang-options li a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0.55rem 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: var(--transition);
+}
+
+.lang-options li a img {
+  width: 17px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.lang-options li a:hover,
+.lang-options li a.active-lang {
+  color: var(--text-main);
+  background-color: rgba(171, 124, 56, 0.1);
+}
+
+/* 2.6 Header / Botón Hamburguesa Móvil */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  z-index: 1100;
+}
+
+.mobile-menu-btn .bar {
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-main);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.mobile-menu-btn.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-btn.open .bar:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 2.7 Header / Responsividad Móvil */
+@media (max-width: 860px) {
+  /* Botón hamburguesa visible y siempre fijo */
+  .mobile-menu-btn {
+    display: flex;
+    z-index: 1200;
+  }
+
+  /* Panel lateral que no desaparece al hacer scroll */
+  .nav-wrapper {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 280px !important;
+    max-width: 80vw !important;
+    height: 100vh !important;
+    height: 100dvh !important; /* Altura dinámica exacta de pantalla móvil */
+    background: var(--bg-card) !important;
+    box-shadow: -6px 0 25px rgba(0, 0, 0, 0.12);
+    padding: 5.5rem 1.8rem 2.5rem 1.8rem;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 1150 !important;
+    overflow-y: auto;
+    display: block !important;
+  }
+
+  .nav-wrapper.open {
+    right: 0 !important;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  /* Opciones de menú limpias: sin cajas pegadas fijas */
+  .nav-item {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    background-color: transparent !important; /* Quita el bloque pegado */
+    color: var(--text-main);
+    border-radius: 4px;
+  }
+
+  .nav-item:hover,
+  .nav-item:active {
+    background-color: rgba(171, 124, 56, 0.1) !important;
+  }
+
+  /* Selector de idiomas en móvil */
+  .dropdown {
+    margin-left: 0;
+    margin-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+  }
+
+  /* Selector de idiomas desplegable */
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block !important;
+  }
+
+  .lang-options li a {
+    background-color: transparent !important; /* Quita el bloque beige pegado */
+    padding: 0.6rem 0.8rem;
+  }
+
+  .lang-options li a:hover,
+  .lang-options li a:active {
+    background-color: rgba(171, 124, 56, 0.1) !important;
+  }
+
+  /* Overlay de fondo */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(3px);
+    z-index: 1100;
+  }
+
+  .menu-overlay.open {
+    display: block;
+  }
+}
+
+
+/* ==========================================================================
+   3. HERO & EFECTO DE ESTELA MARINA (THE WAKE)
+   ========================================================================== */
+
+/* 3.1 Hero / Contenedor & Canvas interactivo */
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 1.5rem;
+  padding: 6rem 1.5rem 8rem 1.5rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 20%, #fbf9f4 0%, var(--bg-color) 75%);
+}
+
+#wake-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 820px;
+  pointer-events: none;
 }
 
-.tagline {
+.hero-actions, 
+.hero-actions a {
+  pointer-events: auto;
+}
+
+/* 3.2 Hero / Lema e isotipo */
+.hero-brand-mark {
+  margin-bottom: 1.5rem;
+}
+
+.motto-tag {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.35rem;
   color: var(--accent-gold);
-  margin-bottom: 1rem;
+  display: block;
 }
 
-.ornament {
-  display: inline-block;
-  width: 40px;
+.motto-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0.4rem;
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+}
+
+.motto-divider::before,
+.motto-divider::after {
+  content: "";
+  width: 45px;
   height: 1px;
   background-color: var(--accent-gold);
-  margin: 0 auto 1.5rem auto;
+  opacity: 0.6;
 }
 
 .hero h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400;
-  line-height: 1.25;
-  color: var(--text-main);
+  line-height: 1.2;
   margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
 .hero-description {
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
   font-weight: 300;
+  margin-bottom: 2.5rem;
   line-height: 1.8;
 }
 
@@ -150,15 +517,35 @@ body {
   display: flex;
   gap: 1.2rem;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-/* Botones */
+/* 3.3 Hero / Separador curvo de onda marina */
+.wake-wave-separator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2;
+}
+
+.wake-wave-separator svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+  fill: var(--bg-color);
+}
+
+
+/* ==========================================================================
+   4. COMPONENTES: BOTONES & ACCIONES
+   ========================================================================== */
 .btn {
   display: inline-block;
-  padding: 0.85rem 2rem;
+  padding: 0.85rem 2.2rem;
   font-size: 0.88rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
@@ -179,59 +566,78 @@ body {
 .btn-secondary {
   border: 1px solid var(--border);
   color: var(--text-main);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .btn-secondary:hover {
   border-color: var(--text-main);
+  background: #fff;
 }
 
-.btn-outline {
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  background: transparent;
+
+/* ==========================================================================
+   5. SECCIÓN MANIFIESTO / ABOUT
+   ========================================================================== */
+.statement-section {
+  padding: 4rem 0 6rem 0;
 }
 
-.btn-outline:hover {
-  background: var(--accent-gold);
-  color: #fff;
-}
-
-/* Secciones */
-.section {
-  padding: 6rem 0;
-}
-
-.section-dark {
-  background-color: var(--bg-dark-section);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.section-header h2 {
+.manifesto-quote {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
-  font-weight: 400;
-  margin-bottom: 0.6rem;
-  letter-spacing: 0.02em;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  max-width: 860px;
+  margin: 1.5rem auto;
+  line-height: 1.5;
+  color: var(--text-main);
 }
 
-.section-header p {
+.statement-body {
+  max-width: 680px;
+  margin: 0 auto;
   color: var(--text-muted);
   font-size: 1.05rem;
 }
 
-/* Grid de Artistas */
+
+/* ==========================================================================
+   6. SECCIÓN CATÁLOGO / ROSTER
+   ========================================================================== */
+
+/* 6.1 Roster / Controles de filtrado interactivo */
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--text-main);
+  color: #fff;
+  border-color: var(--text-main);
+}
+
+/* 6.2 Roster / Grid de artistas y tarjetas */
 .artists-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  margin-bottom: 3.5rem;
 }
 
 .artist-card {
@@ -245,49 +651,48 @@ body {
 }
 
 .artist-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-  border-color: var(--border-subtle);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(24, 23, 21, 0.07);
+  border-color: var(--border-active);
 }
 
 .artist-img-wrapper {
   aspect-ratio: 4 / 5;
   width: 100%;
   overflow: hidden;
-  background: #e2ded7;
+  background: #e4ded3;
 }
 
 .artist-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .artist-card:hover .artist-img-wrapper img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .artist-info {
-  padding: 1.8rem;
+  padding: 2rem 1.8rem;
   text-align: center;
 }
 
 .artist-discipline {
   font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
   color: var(--accent-gold);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .artist-name {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: 1.45rem;
   margin-bottom: 0.8rem;
-  letter-spacing: 0.03em;
+  font-weight: 400;
 }
 
 .artist-summary {
@@ -296,70 +701,82 @@ body {
   line-height: 1.6;
 }
 
-.center-cta {
-  text-align: center;
-}
 
-/* Cuatro Pilares (Misión de Ronsel) */
+/* ==========================================================================
+   7. SECCIÓN FILOSOFÍA / 4 PILARES
+   ========================================================================== */
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
 }
 
-.pillar-item {
+.pillar-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 2.2rem 1.8rem;
+  padding: 2.8rem 2rem;
   text-align: center;
-  border-radius: 2px;
+  transition: var(--transition);
 }
 
-.pillar-item h3 {
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.pillar-icon {
+  color: var(--accent-gold);
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.pillar-card h3 {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 1rem;
-  color: var(--text-main);
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.04em;
 }
 
-.pillar-item p {
+.pillar-card p {
   font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* Contacto */
+
+/* ==========================================================================
+   8. SECCIÓN CONTACTO / INQUIRIES
+   ========================================================================== */
 .contact-box {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  padding: 4.5rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
 .contact-box h2 {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
-  font-weight: 400;
+  font-size: 2.3rem;
   margin-bottom: 0.8rem;
+  font-weight: 400;
 }
 
 .contact-box p {
   color: var(--text-muted);
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .contact-email {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   color: var(--accent-gold);
   text-decoration: none;
   border-bottom: 1px solid var(--accent-gold);
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   transition: var(--transition);
 }
 
@@ -368,30 +785,226 @@ body {
   border-color: var(--accent-gold-hover);
 }
 
-/* Footer con tu crédito */
+
+/* ==========================================================================
+   FOOTER & SUBFOOTER
+   ========================================================================== */
+
+/* Contenedor general del Footer */
 .site-footer {
-  padding: 3rem 0;
+  width: 100%;
+  background-color: var(--bg-contrast);
   border-top: 1px solid var(--border);
-  font-size: 0.82rem;
+  padding: 5rem 0 0 0;
   color: var(--text-muted);
 }
 
-.footer-content {
+/* Grid de las 4 columnas horizontales */
+.footer-grid {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 0.9fr 1.2fr;
+  gap: 3.5rem;
+  padding-bottom: 4rem;
+  align-items: start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand .logo-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.22em;
+  color: var(--text-main);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.footer-brand .logo-sub {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+.footer-tagline {
+  font-size: 0.88rem;
+  margin: 1.2rem 0 1.4rem 0;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Redes sociales con FontAwesome (conservando tu clase .footer-socials) */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+.footer-socials a .fa-regular {
+  font-size: 1.2rem;
+}
+
+/* Títulos y enlaces de las columnas */
+.footer-heading {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent-gold);
+  padding-left: 3px;
+}
+
+/* Contacto en Footer */
+.footer-contact-item {
+  font-size: 0.84rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-contact-link {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  transition: var(--transition);
+}
+
+.footer-contact-link:hover {
+  color: var(--accent-gold-hover);
+  text-decoration: underline;
+}
+
+.footer-contact-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+/* Subfooter discreto inferior (franja de fondo sutil) */
+.subfooter {
+  width: 100%;
+  background-color: rgba(24, 23, 21, 0.04);
+  border-top: 1px solid var(--border);
+  padding: 1.4rem 0;
+  font-size: 0.78rem;
+}
+
+.subfooter-container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
-.footer-content a {
+.subfooter-copyright {
+  color: var(--text-muted);
+}
+
+.subfooter-legal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.subfooter-legal a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.subfooter-legal a:hover {
   color: var(--text-main);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+.subfooter-legal span {
+  opacity: 0.35;
+}
+
+.subfooter-credit {
+  color: var(--text-muted);
+}
+
+.subfooter-credit a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.subfooter-credit a:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+/* Adaptación móvil */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .subfooter-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
   }
 }
